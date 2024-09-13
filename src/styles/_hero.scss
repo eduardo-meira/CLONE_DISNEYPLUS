@@ -1,0 +1,78 @@
+@use "variaveis";
+
+.hero {
+  min-height: 80vh;
+  max-width: 100vw;
+  display: flex;
+
+  @media(max-width: 768px) {
+    display: block;
+    }
+
+  &__img{
+      width: 100%;
+      position: absolute;
+      z-index: -1;
+
+      @media(max-width: 768px) {
+          content: url(../images/hero_celular.jpeg);
+          position: inherit;
+          display: block;
+          margin-top: -50px;
+        }
+  }
+
+  &__content {
+    padding: 5vw;
+    width: 50vw;
+    text-align: center;
+
+    @media(max-width: 768px) {
+      width: 100%;
+    }
+
+    .title--small {
+      margin-bottom: 30px;
+    }
+
+    p:last-child{
+      margin-top: 30px; 
+
+    }
+
+    &__branding {
+      max-width: 20vw;
+      margin: 0 auto;
+
+    }
+
+    &__combos {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      width: 100%;
+
+      @media(max-width: 768px) {
+        display: block;
+        margin-bottom: 24px;
+        }
+
+      &__item {
+        display: block;
+        margin:10px;
+
+        @media(max-width: 768px) {
+          display: block;
+          }
+
+        &__img {
+          max-height: 50px;
+
+          @media(min-width: 768px) {
+            max-height: 4vw;
+          }
+        }
+      }
+    }
+  }
+}

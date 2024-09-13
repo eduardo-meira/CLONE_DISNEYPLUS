@@ -1,5 +1,180 @@
-$bgColor: rgb(141, 141, 141);
+@use "variaveis";
+@use "hero" ;
+@use "shows";
+@use "plans";
+@use "devices";
+@use "faq";
+@use "footer";
+@use "header";
 
-body{
-    background-color: $bgColor;
+
+* {
+  font-family: "Figtree", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+@mixin text($fontSize: 16px) {
+  font-size: $fontSize;
+  line-height: $fontSize + 10px;
+  color: variaveis.$corTextoPrincipal;
+}
+
+@mixin title($fontSize: 36px) {
+  @include text($fontSize);
+  color: variaveis.$corTextoSecundario;
+}
+
+body {
+  background-color: variaveis.$corDeFundo;
+}
+
+.text--big {
+  @include text(18px);
+
+  @media(max-width: 768px) {
+    @include text(12px);
+    }
+}
+
+.text {
+  @include text;
+
+  @media(max-width: 768px) {
+    @include text(10px);
+    }
+}
+
+.text--small {
+  @include text(12px);
+
+  @media(max-width: 768px) {
+    @include text(8px);
+    }
+}
+
+.link-text {
+  @include text(18px);
+  color: variaveis.$corTextoSecundario;
+  text-decoration: underline;
+}
+
+.title--big {
+  @include title(40px);
+
+  @media(max-width: 768px) {
+    @include title(24px);
+    }
+}
+
+.title {
+  @include title;
+
+  @media(max-width: 768px) {
+    @include title(24px);
+    }
+}
+
+.title--small {
+  @include title(24px);
+    
+  @media(max-width: 768px) {
+    @include title(20px);
+    }
+}
+
+.button{
+  background-color: variaveis.$corDeFundoBotaoPrimario;
+  color: variaveis.$corTextoSecundario;
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 20px;
+  cursor: pointer;
+  border: 1px solid variaveis.$corDeFundoBotaoPrimario;
+  transition: all ease-in-out 0.2s;
+
+  &:hover{
+   background-color: lighten(variaveis.$corDeFundoBotaoPrimario, 4%);
+  }
+
+  &--secondary{
+    border-color: variaveis.$corDeFundoBotaoSecundario ;
+    background-color: variaveis.$corDeFundoBotaoSecundario;
+    transition: all ease-in-out 0.3s;
+
+    &:hover{
+      background-color: lighten(variaveis.$corDeFundoBotaoSecundario, 4%);
+     }
+  }
+
+  &--dark{
+    background-color: rgba( variaveis.$corDeFundoBotaoDark , 0.6);
+    border-color: variaveis.$corTextoSecundario;
+
+    &:hover{
+      background-color: lighten(variaveis.$corTextoSecundario, 4%);
+      color:variaveis.$corDeFundoBotaoDark;
+     }
+  }
+}
+
+.image-text-section{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2vw 5vw;
+  align-items: center;
+
+
+  
+  @media(max-width: 768px) {
+    display: block; 
+    
+      .img__rei-leao{
+      content: url(../images/fundo_rei_leao_celular.png);
+      width: 100%;
+        }
+  }
+
+  &__text{
+      padding: 0 2vw;
+  }
+
+  img{
+      width: 100%;
+
+      @media(max-width: 768px) {
+        margin-bottom: 16px;
+      }
+  }
+
+  &--image--full--width{
+    display: block;
+    position: relative;
+
+    img{
+      width: 100%;
+    }
+
+    &__text{
+      position: absolute;
+      top: 2vw;
+      height: 100%;
+      width: calc(50% - 3vw);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      left: 50%;
+      
+    @media(max-width: 768px) {
+      margin: 10px;
+      position: relative;
+      left: 0;
+      width: 100%;
+    }
+    }
+  }
+}
+
