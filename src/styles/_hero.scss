@@ -16,7 +16,6 @@
       z-index: -1;
 
       @media(max-width: 1023px) {
-          content: url(../images/hero_celular.jpeg);
           position: inherit;
           display: block;
           margin-top: 50px;
@@ -24,7 +23,7 @@
   }
 
   &__content {
-    padding: 5vw 3vw;
+    padding: 8vw 5vw;
     width: 50vw;
     text-align: center;
 
@@ -38,13 +37,10 @@
 
     p:last-child{
       margin-top: 30px; 
-
     }
 
     &__branding {
-      max-width: 20vw;
-      margin: 0 auto;
-
+      width: 30vw;
     }
 
     &__combos {
