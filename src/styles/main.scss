@@ -1,5 +1,6 @@
 @use "variaveis";
 @use "hero" ;
+@use "shows";
 @use "plans";
 @use "devices";
 @use "faq";
@@ -125,9 +126,16 @@ body {
   grid-template-columns: 1fr 1fr;
   padding: 2vw 5vw;
   align-items: center;
+
+
   
   @media(max-width: 768px) {
     display: block; 
+    
+      .img__rei-leao{
+      content: url(../images/fundo_rei_leao_celular.png);
+      width: 100%;
+        }
   }
 
   &__text{
